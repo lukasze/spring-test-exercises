@@ -6,11 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /*
         TODO 1
@@ -81,56 +78,35 @@ class GreetControllerTest {
     @DisplayName("http://localhost/greet -> 400")
     public void greet_missingNameAndMissingIsFormal_shouldReturn400() throws Exception {
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/greet")
-                .contentType("application/json"))
-                .andDo(print())
-                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+        fail();
     }
 
     @Test
     @DisplayName("http://localhost/greet?name=X&isFormal=true -> 200")
     public void greet_nameXAndIsFormalTrue_shouldReturn200() throws Exception {
 
-        ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/greet")
-                .contentType("application/json")
-                .param("name", "X")
-                .param("isFormal", "true"))
-                .andDo(print())
-                .andExpect(MockMvcResultMatchers.status().isOk());
+        fail();
     }
 
     @Test
     @DisplayName("http://localhost/greet?name=X -> 400")
     public void greet_nameXAndMissingIsFormal_shouldReturn400() throws Exception {
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/greet")
-                .param("name", "X")
-                .contentType("application/json")
-                )
-                .andDo(print())
-                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+        fail();
     }
 
     @Test
     @DisplayName("http://localhost/greet?isFormal=true -> 200")
     public void greet_missingNameAndIsFormalTrue_shouldReturn200() throws Exception {
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/greet")
-                .contentType("application/json")
-                .param("isFormal", "true"))
-                .andDo(print())
-                .andExpect(MockMvcResultMatchers.status().isOk());
+        fail();
     }
 
     @Test
     @DisplayName("http://localhost/greet?name=X&isFormal=X -> 400")
     public void greet_nameXAndIsFormalX_shouldReturn400() throws Exception {
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/greet?name=X")
-                .contentType("application/json")
-                .param("isFormal", "X"))
-                .andDo(print())
-                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+        fail();
     }
 
     /*
