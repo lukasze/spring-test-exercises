@@ -51,20 +51,6 @@ class GreetServiceTest {
 
         assertEquals(greeting.toUpperCase(), returnedFromService.getGreeting());
     }
-
-    @Test
-    public void greet_YFalse_shouldReturnHIY() throws Exception {
-        var name = "Y";
-        var isFormal = false;
-        var greeting = String.format("Hi, %s!", name);
-        Response stubbedResponse = new Response(greeting, LocalDateTime.now());
-
-        when(responseRepository.save(argThat(response -> greeting.equals(response.getGreeting())))).thenReturn(stubbedResponse);
-        Response returnedFromService = greetService.greet(name, isFormal);
-
-        assertEquals(greeting.toUpperCase(), returnedFromService.getGreeting());
-    }
-
 }
 
 /*
