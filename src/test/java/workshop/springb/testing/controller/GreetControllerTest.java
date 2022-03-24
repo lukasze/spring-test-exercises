@@ -53,19 +53,7 @@ class GreetControllerTest {
         assertEquals("Hello, X!", response.getGreeting());
     }
 
-    @Test
-    @DisplayName("http://localhost/greet?isFormal=true -> 200, Hello, World!")
-    public void greetEndpoint_missingNameAndIsFormalTrue_shouldReturn200() throws Exception {
 
-        Mockito.when(greetService.greet("World", true)).thenReturn(new Response("Hello, World!", LocalDateTime.now()));
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/greet")
-                .contentType("application/json")
-                .param("isFormal", "true"))
-                .andDo(print())
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.greeting").value("Hello, World!"));
-    }
 
 }
 
